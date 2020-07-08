@@ -1,6 +1,6 @@
 """
 run:
-python xml_to_csv.py --root "train"
+python xml_to_csv.py --type "train"
 """
 
 import os
@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--root', help='path to annotation files directory',
+parser.add_argument('--type', help='test, val, or train',
                     required=True)
 args = parser.parse_args()
 
@@ -40,8 +40,8 @@ def xml_to_csv(img_files, xml_files):
 
 
 def main():
-    root = args.root
-    image_path = os.path.join(os.getcwd(), ''+root).replace("\\","/")
+    state = args.type
+    image_path = os.path.join(os.getcwd(), ''+state).replace("\\","/")
     all_files_xml = []
     all_files_img = []
     all_path = []
@@ -52,9 +52,10 @@ def main():
                     all_files_img.append(os.path.join(root,f).replace("\\","/"))
                 if f.split(".")[-1] in ["xml"]:
                     all_files_xml.append(os.path.join(root,f).replace("\\","/"))
-                    
+    all_files_img = sorted(all_files_img)
+    all_files_xml = sorted(all_files_xml)
     xml_df = xml_to_csv(all_files_img, all_files_xml)
-    xml_df.to_csv(root+'_labels.csv', index=None)
+    xml_df.to_csv(state+'_labels.csv', index=None)
     print('Successfully converted xml to csv.')
 
 
