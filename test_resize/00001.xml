@@ -1,26 +1,26 @@
 <annotation>
 	<folder>Kangaroo</folder>
-	<filename>00021.jpg</filename>
-	<path>/home/andy/Desktop/Kangaroo/12_kangaroo_kickabout_3_-_amiee_stubbs.jpg</path>
+	<filename>00001.jpg</filename>
+	<path>/home/andy/Desktop/Kangaroo/stock-photo-two-kids-in-the-zoo-feeding-kangaroo-296180786.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>640</width>
-		<height>427</height>
+		<width>450</width>
+		<height>319</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>kangaroo</name>
 		<pose>Unspecified</pose>
-		<truncated>1</truncated>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>300</xmin>
-			<ymin>194</ymin>
-			<xmax>640</xmax>
-			<ymax>371</ymax>
+			<xmin>129</xmin>
+			<ymin>49</ymin>
+			<xmax>214</xmax>
+			<ymax>145</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>184</xmin>
-			<ymin>263</ymin>
-			<xmax>506</xmax>
-			<ymax>399</ymax>
+			<xmin>74</xmin>
+			<ymin>58</ymin>
+			<xmax>189</xmax>
+			<ymax>140</ymax>
 		</bndbox>
 	</object>
 </annotation>
