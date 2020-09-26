@@ -9,11 +9,18 @@ from __future__ import absolute_import
 import os
 import io
 import pandas as pd
-import tensorflow as tf
+
+from tensorflow.python.framework.versions import VERSION
+if VERSION >= "2.0.0a0":
+    import tensorflow.compat.v1 as tf
+else:
+    import tensorflow as tf
 
 from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 flags = tf.app.flags
 flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
@@ -87,7 +94,7 @@ def create_tf_example(group, path):
 
 
 def main(_):
-    writer = tf.io.TFRecordWriter(FLAGS.output_path)
+    writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
     path = os.path.join(FLAGS.image_dir)
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, 'filename')
@@ -101,4 +108,5 @@ def main(_):
 
 
 if __name__ == '__main__':
-    tf.compat.v1.app.run()
+    tf.app.run()
+

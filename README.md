@@ -4,7 +4,9 @@ This repo contains scripts for object detection task. Some tutorials written in 
 
 ### Useful scripts:
 
-1. `xml_to_csv.py`: convert PASCAL xml format to csv 
+You can access it in folder `/scripts`. When you want to use it, you should move it to the parent folder.
+
+1. `xml_to_csv.py`: convert PASCAL VOC xml format to csv 
 2. `generate_labelmap.py`: generate label_map.pbtxt
 3. `generate_tfrecord.py`: generate tfrecord file
 4. `normalizer.py`: if your subfolder format is grouped by classes. this script merge two same image with different xml files
