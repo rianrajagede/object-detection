@@ -37,7 +37,7 @@ parser.add_argument('--imagedir', help='Name of the folder containing images to 
                     default=None)
 parser.add_argument('--edgetpu', help='Use Coral Edge TPU Accelerator to speed up detection',
                     action='store_true')
-parser.add_argument('--mkey', help='', required=True)
+parser.add_argument('--mkey', default="", help='', required=True)
 args = parser.parse_args()
 
 MODEL_NAME = args.modeldir
@@ -178,7 +178,10 @@ for image_path in images:
 
     # All the results have been drawn on the image, now display the image
     # cv2.imshow('Object detector', image)
-    cv2.imwrite('/content/'+img_name+'_'+model_key+".jpg", image)
+    if model_key!="":
+        cv2.imwrite('/content/'+img_name+'_'+model_key+".jpg", image)
+    else:
+        cv2.imwrite('/content/'+img_name+"_annotated"+".jpg", image)
 
     # Press any key to continue to next image, or press 'q' to quit
     if cv2.waitKey(0) == ord('q'):
