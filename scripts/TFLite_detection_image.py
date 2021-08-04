@@ -37,7 +37,7 @@ parser.add_argument('--imagedir', help='Name of the folder containing images to 
                     default=None)
 parser.add_argument('--edgetpu', help='Use Coral Edge TPU Accelerator to speed up detection',
                     action='store_true')
-parser.add_argument('--mkey', default="", help='', required=True)
+parser.add_argument('--mkey', default="", help='added in the result image name _XX.jpg')
 args = parser.parse_args()
 
 MODEL_NAME = args.modeldir
