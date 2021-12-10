@@ -54,4 +54,3 @@ if __name__ == "__main__":
 	DetectImagesFromFolder(detector, args.images_dir, save_output=args.save_output, output_dir=args.output_directory)
 
 	print("Done ...")
-	cv2.destroyAllWindows()
